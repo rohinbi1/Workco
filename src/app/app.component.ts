@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'workCo';
   users = DUMMY_USERS;
  
-  selectedUserId = 'u1';
+  selectedUserId:string='' ;
   onSlectUser(id: any) {
     this.selectedUserId=id
     console.log('WorkCo' + id);
