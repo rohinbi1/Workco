@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 @Component({
@@ -12,7 +12,6 @@ export class NewTaskComponent {
   enterTitle: string = '';
   enterSummary: string = '';
   enterDueDate: string = '';
-
   onCancels() {
     this.onCancel.emit();
   }

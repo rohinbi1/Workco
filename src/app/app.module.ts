@@ -8,6 +8,8 @@ import { UserComponent } from './user/user.component';
 import { TaskComponent } from './tasks/task/task.component';
 import { FormsModule } from '@angular/forms';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { CardComponent } from './shared/card/card.component';
+import { TaskService } from './tasks/task/task.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,15 @@ import { NewTaskComponent } from './tasks/new-task/new-task.component';
     UserComponent,
     TasksComponent,
     TaskComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

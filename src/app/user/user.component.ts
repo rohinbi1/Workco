@@ -26,22 +26,6 @@ export class UserComponent {
   get imagePath() {
     return 'assets/' + this.user.avatar;
   }
-  // get imagePath() {
-  //   return 'assets/' + this.selectedUser.avatar;
-  // }
-  // onSlectUser(){
-  //   const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-  //   this.selectedUser = DUMMY_USERS[randomIndex];
-  //   console.log('log');
-  // }
-  // @Input() id!: string;
-  // @Input() avatar!: string;
-  // @Input() name!: string;
-  // @Input() user!:{
-  //   id:string;
-  //   name:string;
-  //   avatar:string;
-  // }
   @Input() user!:User;
   @Output() selectUser = new EventEmitter();
   onSlectUser() {

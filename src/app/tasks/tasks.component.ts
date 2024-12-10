@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {type NewTask } from './task/task.model';
+import { Component, inject, Input } from '@angular/core';
+import { TaskService } from './task/task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -9,43 +9,25 @@ import {type NewTask } from './task/task.model';
 export class TasksComponent {
   @Input() name!: string;
   @Input() userId!: string;
+
   isAdding = false;
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u2',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ];
+
+  // constructor(private taskService: TaskService) {}
+  private taskService=inject(TaskService);
 
   get selectUserTask() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return this.taskService.getSelectUserTask(this.userId); 
   }
-  onComplete(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-  }
+
+  // onComplete(id: string) {
+  //   this.taskService.onComplete(id); 
+  // }
+
   addTask() {
     this.isAdding = true;
   }
-  onCancleTask() {
+
+  onCancelTask() {
     this.isAdding = false;
   }
 }

@@ -3,16 +3,7 @@
     <li *ngFor="let user of users">
       <app-user [user]="user" (selectUser)="onSlectUser($event)" [selectedUser]="user.id===selectedUserId"></app-user>
     </li>
-    <!-- <li>
-      <app-user [user]="users[1]" (selectUser)="onSlectUser($event)"></app-user>
-    </li>
-
-    <li>
-      <app-user [user]="users[2]" (selectUser)="onSlectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[3]" (selectUser)="onSlectUser($event)"></app-user>
-    </li> -->
+   
   </ul>
   <app-tasks *ngIf="selectedUser; else fallback" [userId]="selectedUser.id" [name]="selectedUser.name"  />
   <ng-template #fallback>
